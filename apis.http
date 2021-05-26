@@ -1,0 +1,45 @@
+@base_url = http://localhost:3000
+
+// Fetch Trades
+GET {{base_url}}/trade HTTP/1.1
+###
+
+// Get Portfolio
+GET {{base_url}}/trade/portfolio HTTP/1.1
+###
+
+// Get net returns
+GET {{base_url}}/trade/returns HTTP/1.1
+
+// Add Trade
+POST {{base_url}}/trade HTTP/1.1
+content-type: application/json
+
+{
+    "ticker": "WIPRO",
+    "price": 100,
+    "type": "sell",
+    "shares_added": 1
+}
+###
+
+// Update Trade
+POST {{base_url}}/trade/update HTTP/1.1
+content-type: application/json
+
+{
+    "_id": "60ae6ac55e062c36c85e2a1c",
+    "ticker": "CTS",
+    "price": 10,
+    "type": "sell",
+    "shares_added": 5
+}
+###
+
+POST {{base_url}}/trade/delete HTTP/1.1
+content-type: application/json
+
+{
+    "_id": "60aeac378ec48d3f1e1455fd"
+}
+###
