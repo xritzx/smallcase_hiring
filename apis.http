@@ -1,15 +1,23 @@
-@base_url = http://localhost:3000
+# Tech Stack : Express + MongoDB
+# Hosted : Heroku Free Tier (USA N.Virginia)
+# GitHub Repo : https://github.com/xritzx/smallcase_hiring.git
 
-// Fetch Trades
+## NOTE: Please install `humao.rest-client` in VS Code to use the APIs ##
+
+@base_url = https://smallcase-hiring-ritankar.herokuapp.com
+
+// Fetch All trades grouped by securities
 GET {{base_url}}/trade HTTP/1.1
 ###
 
-// Get Portfolio
+// Get Portfolio security grouped aggregate of trades
 GET {{base_url}}/trade/portfolio HTTP/1.1
 ###
 
 // Get net returns
 GET {{base_url}}/trade/returns HTTP/1.1
+###
+
 
 // Add Trade
 POST {{base_url}}/trade HTTP/1.1
@@ -17,11 +25,12 @@ content-type: application/json
 
 {
     "ticker": "WIPRO",
-    "price": 100,
-    "type": "sell",
-    "shares_added": 1
+    "price": 50,
+    "type": "buy",
+    "shares_added": 10
 }
 ###
+
 
 // Update Trade
 POST {{base_url}}/trade/update HTTP/1.1
@@ -35,6 +44,7 @@ content-type: application/json
     "shares_added": 5
 }
 ###
+
 
 POST {{base_url}}/trade/delete HTTP/1.1
 content-type: application/json
